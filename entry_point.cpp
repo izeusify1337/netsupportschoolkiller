@@ -44,12 +44,9 @@ void resume_process(uint32_t pid)
 }
 
 int main() {
-	std::vector<std::string> programs = { "client32.exe", "runplugin.exe", "Runplugin64.exe" };
+	std::vector<std::string> programs = { "client32.exe", "runplugin.exe", "Runplugin64.exe", "notepad.exe" };
 	ShowWindow(GetConsoleWindow(), false);
-
-	if (!get_pid("sys32.exe").empty())
-		return 0;
-
+	
 	for (auto program : programs) 
 		for(auto pid : get_pid(program))
 			suspend_process(pid);
